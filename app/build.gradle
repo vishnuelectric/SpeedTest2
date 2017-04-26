@@ -30,8 +30,8 @@ android {
         applicationId "com.vishani.internet.speed.test"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 7
-        versionName "1.6"
+        versionCode 8
+        versionName "1.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
 
