@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity
                 super.onAdFailedToLoad(i);
             }
         });
-        nativeExpressAdView.loadAd(new AdRequest.Builder().addTestDevice("").build());
+        nativeExpressAdView.loadAd(new AdRequest.Builder().addTestDevice("F07C4CCDC55C7CF6AE8E029E03ED7C75").build());
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,7 +235,7 @@ mTestAgain.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         if(mHandlerThread.isAlive() && mHandlerThread.getLooper() != null) {
             mWorkerHandler = new Handler(mHandlerThread.getLooper());
-
+            mWorkerHandler.post(mWorkerSpeedRunnable);
         }
         if(mPreference.getInt("launch_count",0) > 2 && mPreference.getInt("launch_count",0) <15)
         {

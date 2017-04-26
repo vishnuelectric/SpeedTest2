@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/download_bg"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.vishani.internet.speed.test.MainActivity"
     tools:showIn="@layout/app_bar_main">
-   <FrameLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/speed_frame"
-       android:background="#48cce9">
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
       <com.github.anastr.speedviewlib.PointerSpeedometer
           android:id="@+id/pointerSpeedometer"
+          android:layout_alignParentTop="true"
           android:layout_width="300dp"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
+          android:layout_height="300dp"
+android:layout_centerHorizontal="true"
           app:maxSpeed="50"
          />
-   </FrameLayout>
+
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/speed_frame"
+       android:layout_below="@+id/pointerSpeedometer"
        android:layout_margin="10dp"
        android:id="@+id/test_again_ll">
       <Button
@@ -38,10 +36,11 @@
           android:text="Test Speed"/>
    </LinearLayout>
    <com.google.android.gms.ads.NativeExpressAdView
-       android:layout_width="wrap_content"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       app:adSize="320x150"
+       app:adSize="FULL_WIDTHx150"
        android:id="@+id/maiAd"
+       android:layout_below="@id/test_again_ll"
        app:adUnitId="ca-app-pub-6255425687975291/7081504560">
 
    </com.google.android.gms.ads.NativeExpressAdView>
@@ -50,7 +49,7 @@
        android:layout_height="wrap_content"
        android:orientation="horizontal"
        android:padding="10dp"
-       android:layout_below="@id/test_again_ll"
+       android:layout_below="@id/maiAd"
        android:layout_centerInParent="true">
 
    <TextView
@@ -85,3 +84,4 @@
 
    </FrameLayout>
 </RelativeLayout>
+</ScrollView>
