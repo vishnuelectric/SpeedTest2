@@ -17,6 +17,8 @@
           android:layout_width="300dp"
           android:layout_height="300dp"
 android:layout_centerHorizontal="true"
+          app:backgroundCircleColor="@color/speed_background"
+          app:indicatorColor="#00B3F4"
           app:maxSpeed="50"
          />
 
@@ -35,12 +37,23 @@ android:layout_centerHorizontal="true"
           android:textColor="@android:color/white"
           android:text="Test Speed"/>
    </LinearLayout>
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="4.5"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:id="@+id/rating_bar"
+        android:layout_below="@id/test_again_ll"
+        android:theme="@style/RatingBar"
+        android:layout_centerHorizontal="true"
+        />
    <com.google.android.gms.ads.NativeExpressAdView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        app:adSize="FULL_WIDTHx150"
        android:id="@+id/maiAd"
-       android:layout_below="@id/test_again_ll"
+       android:layout_below="@id/rating_bar"
        app:adUnitId="ca-app-pub-6255425687975291/7081504560">
 
    </com.google.android.gms.ads.NativeExpressAdView>

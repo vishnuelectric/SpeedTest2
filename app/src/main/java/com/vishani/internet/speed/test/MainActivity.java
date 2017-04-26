@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity
         }
     };
     private NativeExpressAdView nativeExpressAdView;
+    private RatingBar mRatingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +159,28 @@ public class MainActivity extends AppCompatActivity
             }
         };
 
+        mRatingBar = (RatingBar) findViewById(R.id.rating_bar);
+        if(mPreference.getInt("launch_count",0) > 16)
+        {
+            mRatingBar.setVisibility(View.GONE);
+        }
+        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                if(ratingBar.getRating()>= 4 )
+                {
+                    Toast.makeText(ratingBar.getContext(),"If you like this app please rate us 5 star",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.vishani.internet.speed.test")));
+                    mPreference.edit().putInt("launch_count",16).apply();
 
+                }else
+                {
+
+                    mPreference.edit().putInt("launch_count",16).apply();
+
+                }
+            }
+        });
          pointerSpeedometer= (PointerSpeedometer) findViewById(R.id.pointerSpeedometer);
         pointerSpeedometer.setUnit("Mbps");
         pointerSpeedometer.setWithTremble(false);
